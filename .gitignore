@@ -1,0 +1,79 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.sqlite3
+db.sqlite3
+
+# Django media/static
+media/
+staticfiles/
+static_root/
+static_cdn/
+
+# Tailwind / Node-related
+node_modules/
+.npm/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+dist/
+build/
+.env.local
+
+# Environment
+.env
+.venv/
+venv/
+ENV/
+env/
+.Python
+
+# macOS & Linux system files
+.DS_Store
+*.swp
+
+# VSCode
+.vscode/
+
+# JetBrains IDEs
+.idea/
+
+# Docker
+*.pid
+docker-compose.override.yml
+docker-compose.dev.yml
+docker-compose.yml
+.dockerignore
+
+# Poetry
+poetry.lock
+__pypackages__/
+
+# Coverage reports
+htmlcov/
+.coverage
+.tox/
+.pytest_cache/
+
+# pyenv
+.python-version
+
+# Backup files
+*.bak
+*.tmp
+*~
+
+# Misc
+*.sass-cache
+*.cache
+coverage.xml
