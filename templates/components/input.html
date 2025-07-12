@@ -1,0 +1,26 @@
+<div class="relative w-full">
+  <input 
+  type="{{ type|default:'text' }}" 
+  name="{{ field.name }}" 
+  id="{{ field.id_for_label }}"
+  value="{{ field.value|default_if_none:'' }}" 
+  placeholder=" "
+  class="peer block w-full appearance-none border border-gray-300 rounded-md bg-white px-3 pt-5 pb-2 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+  {% if field.field.required %} required {% endif %} 
+  />
+
+  {% if show_label %}
+  <label for="{{ field.id_for_label }}" class="absolute left-3 top-2 text-sm text-gray-500 transition-all duration-200 ease-in-out
+             peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400
+             peer-focus:top-2 peer-focus:text-sm peer-focus:text-gray-500">
+    {{ field.label }}
+  </label>
+  {% endif %}
+
+  {% if field.show_errors %}
+  {% for error in field.errors %}
+  <p class="mt-1 text-sm text-red-600">{{ error }}</p>
+  {% endfor %}
+  {% endif %}
+
+</div>
