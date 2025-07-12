@@ -1,3 +1,4 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,18 +8,19 @@
   <title>
     {% block title %}Instagram{% endblock %}
   </title>
+  <link rel="stylesheet" href="{% static 'css/output.css' %}">
 </head>
 
-<body>
-  <header>
+<body class="min-height-screen font-sans flex flex-col">
+  <header class="w-full">
     {% block header %}
     {% endblock %}
   </header>
-  <main>
+  <main class="w-full">
     {% block content %}
     {% endblock %}
   </main>
-  <footer>
+  <footer class="w-full">
     {% block footer %}
     {% endblock %}
   </footer>

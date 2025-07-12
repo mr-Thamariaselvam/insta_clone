@@ -1,0 +1,31 @@
+/* Tailwind Directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🌞 Light Theme (System Default) */
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-bg: var(--tw-bg-white); /* #ffffff → Tailwind bg-white */
+    --color-text: var(--tw-text-black); /* #000000 → Tailwind text-black */
+    --color-card: var(--tw-gray-50); /* #fafafa → Tailwind gray-50 */
+    --color-input: var(--tw-gray-100); /* #efefef → Tailwind gray-100 */
+    --color-border: var(--tw-gray-200); /* #dbdbdb → Tailwind gray-200 */
+    --color-link: var(--tw-blue-800); /* #00376b → Tailwind blue-800 */
+    --color-blue: var(--tw-blue-500); /* #0095f6 → Tailwind blue-500 */
+    --color-footer: var(--tw-gray-500); /* #777777 -> Tailwind gray-500 */
+  }
+}
+/* 🌙 Dark Theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: var(--tw-bg-black); /* #000000 → Tailwind bg-black */
+    --color-text: var(--tw-text-white); /* #ffffff → Tailwind text-white */
+    --color-card: var(--tw-gray-800); /* #121212 → Tailwind gray-800 */
+    --color-input: var(--tw-gray-700); /* #262626 → Tailwind gray-700 */
+    --color-border: var(--tw-gray-600); /* #3c3c3c → Tailwind gray-600 */
+    --color-link: var(--tw-blue-400); /* #91bfff → Tailwind blue-400 */
+    --color-blue: var(--tw-blue-500); /* #3797f0 → Tailwind blue-500 */
+    --color-footer: var(--tw-gray-400); /* #777777 -> Tailwind gray-500 */
+  }
+}
