@@ -9,6 +9,12 @@
 .static {
   position: static;
 }
+.isolate {
+  isolation: isolate;
+}
+.container {
+  width: 100%;
+}
 .block {
   display: block;
 }

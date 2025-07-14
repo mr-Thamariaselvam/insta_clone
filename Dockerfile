@@ -3,7 +3,7 @@ FROM python:3.13.5-bullseye
 # Prevents Python from writing .pyc files and enables real-time logging
 ENV PYTHONUNBUFFERED=1
 
-# Create working directory (fixed spacing error in mkdir command)
+# Create working directory
 RUN mkdir /insta_clone
 
 # Set working directory
@@ -15,14 +15,21 @@ RUN pip install --upgrade pip && pip install poetry
 # Copy Poetry dependency files
 COPY pyproject.toml poetry.lock* ./
 
-# Install dependencies without creating a virtualenv
+# Install dependencies 
 RUN poetry install
 
-# Copy the rest of the project files
+# Copy the rest of your Django project code (excluding start-django.sh)
 COPY . .
 
-# Expose port 8000 for the Django dev server
+# Copy the startup script (separately, after code copy, to avoid being overwritten)
+COPY start-django.sh /start-django.sh
+
+# Make the script executable
+RUN chmod +x start-django.sh
+
+
+# Expose Django dev server port
 EXPOSE 8000
 
-# Run the Django development server
-ENTRYPOINT ["poetry", "run", "python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Run the script
+ENTRYPOINT ["/start-django.sh"]
