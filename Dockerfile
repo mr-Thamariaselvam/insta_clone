@@ -31,4 +31,4 @@ RUN chmod +x start-django.sh
 
 EXPOSE 8000
 
-ENTRYPOINT ["/start-django.sh"]
+ENTRYPOINT ["./start-django.sh"]
