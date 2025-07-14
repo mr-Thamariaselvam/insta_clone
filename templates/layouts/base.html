@@ -9,21 +9,16 @@
     {% block title %}Instagram{% endblock %}
   </title>
   <link rel="stylesheet" href="{% static 'css/output.css' %}">
+  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
 </head>
 
-<body class="min-height-screen font-sans flex flex-col">
-  <header class="w-full">
-    {% block header %}
-    {% endblock %}
-  </header>
-  <main class="w-full">
-    {% block content %}
-    {% endblock %}
-  </main>
-  <footer class="w-full">
-    {% block footer %}
-    {% endblock %}
-  </footer>
+<body class="bg-[var(--color-bg)] text-[var(--color-text)]">
+  {% block header %}
+  {% endblock %}
+  {% block content %}
+  {% endblock %}
+  {% block footer %}
+  {% endblock %}
 </body>
 
 </html>

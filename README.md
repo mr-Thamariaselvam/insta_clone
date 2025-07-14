@@ -16,11 +16,12 @@ A full-featured Django-based Instagram clone with Tailwind CSS (no Node.js requi
 
 ---
 
-## 🎨 Tailwind CSS Setup (No Node.js)
+## 🎨 Tailwind CSS Setup (Node.js)
 
 1. **Initialize Tailwind config (no node_modules)**
 
    ```bash
+   npm install tailwindcss @tailwindcss/cli
    npx tailwindcss-cli@latest init
    ```
 
@@ -29,6 +30,7 @@ A full-featured Django-based Instagram clone with Tailwind CSS (no Node.js requi
    Add the following:
 
    ```css
+   @import "tailwindcss";
    @tailwind base;
    @tailwind components;
    @tailwind utilities;
