@@ -1,35 +1,34 @@
 FROM python:3.13.5-bullseye
 
-# Prevents Python from writing .pyc files and enables real-time logging
 ENV PYTHONUNBUFFERED=1
 
-# Create working directory
 RUN mkdir /insta_clone
-
-# Set working directory
 WORKDIR /insta_clone
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y curl
+
+# Install Node.js and npm
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+  apt-get install -y nodejs
 
 # Install Poetry
 RUN pip install --upgrade pip && pip install poetry
 
-# Copy Poetry dependency files
+# Copy and install backend dependencies
 COPY pyproject.toml poetry.lock* ./
-
-# Install dependencies 
 RUN poetry install
 
-# Copy the rest of your Django project code (excluding start-django.sh)
+# Copy frontend (Tailwind) dependencies
+COPY package.json package-lock.json ./
+RUN npm install
+
+# Copy rest of the project files
 COPY . .
 
-# Copy the startup script (separately, after code copy, to avoid being overwritten)
-COPY start-django.sh /start-django.sh
-
-# Make the script executable
+# Set permissions
 RUN chmod +x start-django.sh
 
-
-# Expose Django dev server port
 EXPOSE 8000
 
-# Run the script
 ENTRYPOINT ["/start-django.sh"]
